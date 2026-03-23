@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import "./globals.css";
+import { Jost } from "next/font/google";
+
+const jost = Jost({
+  variable: "--font-jost",
+  subsets: ["latin"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +20,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nike Store | Ecommerce",
-  description: "Shop the latest Nike products online",
+  title: "Nike",
+  description: "An e-commerce platform for Nike shoes",
 };
 
 export default function RootLayout({
@@ -28,7 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-zinc-50 dark:bg-zinc-950">
+      <body className={`${jost.className} antialiased`}>
         <Header />
         <main className="flex-1">{children}</main>
       </body>
